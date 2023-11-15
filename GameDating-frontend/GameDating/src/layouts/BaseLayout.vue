@@ -1,6 +1,9 @@
 <template>
 
-  <van-nav-bar title="标题" left-arrow>
+  <van-nav-bar title="标题" left-arrow
+               @click-left="onClickLeft"
+               @click-right="onClickRight"
+  >
     <template #right>
       <van-icon name="search" size="18" />
     </template>
@@ -9,32 +12,35 @@
 
   </div>
 
-  <van-tabbar @change="onChange">
-    <van-tabbar-item icon="home-o">标签 1</van-tabbar-item>
-    <van-tabbar-item icon="search">标签 2</van-tabbar-item>
-    <van-tabbar-item icon="friends-o">标签 3</van-tabbar-item>
-    <van-tabbar-item icon="setting-o">标签 4</van-tabbar-item>
+  <router-view />
+
+  <van-tabbar route @change="onChange" v-model="active">
+    <van-tabbar-item icon="home-o" to="/">主页</van-tabbar-item>
+    <van-tabbar-item icon="search" to="/team">组队</van-tabbar-item>
+    <van-tabbar-item icon="friends-o" to="/person">个人</van-tabbar-item>
+
   </van-tabbar>
 
 
 
 </template>
 
-<script>
+<script setup>
 import {ref} from 'vue';
 import {showToast} from 'vant';
+import {useRouter} from "vue-router";
 
-export default {
-  name: "BaseLayout",
-  setup() {
-    const active = ref(0);
-    const onChange = (index) => showToast(`标签 ${index}`);
-    return {
-      onChange,
-    };
-  },
-}
+const active = ref('index');
+const onChange = (index) => showToast(`标签 ${index}`);
+const router = useRouter();
 
+const onClickLeft = () =>{
+  router.back();
+
+};
+const onClickRight = () =>{
+  router.push('/search');
+};
 
 </script>
 

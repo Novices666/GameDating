@@ -8,7 +8,7 @@
       @update:model-value="searchTextChaged"
   >
     <template #action>
-      <div @click="onClear">清空</div>
+      <div @click="onSearch">搜索</div>
     </template>
   </van-search>
 
@@ -45,32 +45,26 @@
 
 <script setup>
 import {ref} from 'vue';
+import {useRouter} from "vue-router";
+
+const router = useRouter();
 
 const activeIds = ref([]);
 const activeIndex = ref(0);
 const originalList = [
   {
-    text: '浙江',
+    text: '性别',
     children: [
-      {text: '杭州', id: '杭州'},
-      {text: '温州', id: '温州'},
-      {text: '宁波', id: '宁波'},
+      {text: '男', id: '男'},
+      {text: '女', id: '女'},
     ],
   },
   {
-    text: '江苏',
+    text: '方向',
     children: [
-      {text: '南京', id: '南京'},
-      {text: '无锡', id: '无锡'},
-      {text: '徐州', id: '徐州'},
-    ],
-  },
-  {
-    text: '江苏',
-    children: [
-      {text: '南京', id: '南京2'},
-      {text: '无锡', id: '无锡2'},
-      {text: '徐州', id: '徐州2'},
+      {text: 'java', id: 'java'},
+      {text: 'python', id: 'python'},
+      {text: 'C++', id: 'C++'},
     ],
   },
 ];
@@ -97,6 +91,15 @@ const searchTextChaged = ()=>{
     tempParentTag.children = tempChildren.filter(item => item.text.includes(searchText.value));
     return tempParentTag;
   });
+}
+
+const onSearch = () =>{
+  router.push({
+    path: "/searchResult",
+    query: {
+      tags: activeIds.value,
+    }
+  })
 }
 
 </script>

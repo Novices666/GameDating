@@ -11,12 +11,15 @@ import SearchPage from "../pages/SearchPage.vue";
 import PersonPage from "../pages/PersonPage.vue";
 import TeamPage from "../pages/TeamPage.vue";
 import UserEditPage from "../pages/UserEditPage.vue";
+import SearchResultPage from "../pages/SearchResultPage.vue";
 
 export const routes = [
     { path: '/', component: IndexPage },
     { path: '/team', component: TeamPage },
     { path: '/person', component:PersonPage },
     { path: '/search', component: SearchPage},
-    { path: '/user/edit', component: UserEditPage}
+    { path: '/user/edit', component: UserEditPage},
+
+    { path: '/searchResult', component: SearchResultPage}
 ]
 

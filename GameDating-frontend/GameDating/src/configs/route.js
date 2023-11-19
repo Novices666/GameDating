@@ -8,10 +8,11 @@
 // 我们后面再讨论嵌套路由。
 import IndexPage from "../pages/IndexPage.vue";
 import SearchPage from "../pages/SearchPage.vue";
-import PersonPage from "../pages/PersonPage.vue";
+import PersonPage from "../pages/UserPage.vue";
 import TeamPage from "../pages/TeamPage.vue";
 import UserEditPage from "../pages/UserEditPage.vue";
 import SearchResultPage from "../pages/SearchResultPage.vue";
+import UserLoginPage from "../pages/UserLoginPage.vue";
 
 export const routes = [
     { path: '/', component: IndexPage },
@@ -19,7 +20,7 @@ export const routes = [
     { path: '/person', component:PersonPage },
     { path: '/search', component: SearchPage},
     { path: '/user/edit', component: UserEditPage},
-
-    { path: '/searchResult', component: SearchResultPage}
+    { path: '/searchResult', component: SearchResultPage},
+    { path: '/user/login', component:UserLoginPage }
 ]
 

@@ -44,7 +44,7 @@ const route = useRoute();
         return qs.stringify(params,{indices :false})
       }
     }).then(function (response) {
-      return response.data?.data
+      return response.data
     }).catch(function (error) {
       console.log(error)
     });

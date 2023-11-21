@@ -17,7 +17,7 @@ import UserLoginPage from "../pages/UserLoginPage.vue";
 export const routes = [
     { path: '/', component: IndexPage },
     { path: '/team', component: TeamPage },
-    { path: '/person', component:PersonPage },
+    { path: '/user', component:PersonPage },
     { path: '/search', component: SearchPage},
     { path: '/user/edit', component: UserEditPage},
     { path: '/searchResult', component: SearchResultPage},
